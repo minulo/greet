@@ -3,8 +3,13 @@ package greet
 import "testing"
 
 func TestHello(t *testing.T) {
-	want := "Hello, Juju! (greet v1, release " + Release + ")"
-	if got := Hello("Juju"); got != want {
-		t.Errorf("Hello() = %q, want %q", got, want)
+	for lang, want := range map[string]string{
+		"en": "Hello, Juju! (greet v2, release 2.0)",
+		"fr": "Bonjour, Juju! (greet v2, release 2.0)",
+		"vi": "Xin chào, Juju! (greet v2, release 2.0)",
+	} {
+		if got := Hello("Juju", lang); got != want {
+			t.Errorf("Hello(%q) = %q, want %q", lang, got, want)
+		}
 	}
 }
