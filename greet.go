@@ -6,7 +6,7 @@ package greet
 import "fmt"
 
 // Release names the state of branch v1.
-const Release = "1.0"
+const Release = "1.1"
 
 // Hello returns a greeting for name.
 func Hello(name string) string {
